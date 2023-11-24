@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,6 +8,36 @@ import { CommonModule } from '@angular/common';
   templateUrl: './eventos.component.html',
   styleUrl: './eventos.component.scss'
 })
+
+
+
 export class EventosComponent {
 
+  ngOnInit(): void {
+    this.getEventos();
+  }
+
+
+public eventos: any
+
+
+public getEventos():void{
+  this.eventos = [{
+    Tema:'Angular',
+    Local:'Anápolis'
+    },
+    {
+      Tema:'Angular',
+      Local:'Anápolis'
+      }
+    ]
 }
+
+
+};
+
+
+
+
+
+
