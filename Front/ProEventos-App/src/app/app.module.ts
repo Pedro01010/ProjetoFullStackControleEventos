@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EventosComponent } from './eventos/Eventos.component';
+import { EventosComponent } from './Eventos/Eventos.component';
 import { PalestrantesComponent } from './Palestrantes/Palestrantes.component';
 
 
@@ -12,10 +12,9 @@ import { PalestrantesComponent } from './Palestrantes/Palestrantes.component';
 @NgModule({
   declarations: [
     AppComponent,
-      EventosComponent,
-      PalestrantesComponent,
-
-   ],
+    EventosComponent,
+    PalestrantesComponent
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
