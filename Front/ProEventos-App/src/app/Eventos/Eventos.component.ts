@@ -9,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class EventosComponent implements OnInit {
 
   public eventos: any;
+numRows: any;
+numCols: any;
+gridCards: any;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit():void {
