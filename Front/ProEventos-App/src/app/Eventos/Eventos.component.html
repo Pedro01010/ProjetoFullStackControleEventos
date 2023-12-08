@@ -1,36 +1,63 @@
 <h2>Eventos</h2>
-<hr>
-<form action="" class="d-flex flex-row align-items-center flex-wrap ">
-  <div class="d-flex mb-3" >
-    <input type="text" class="form-control me-2" placeholder="buscar">
-    <button class="btn btn-outline-success">Buscar</button>
+
+<div class="d-flex align-items-center">
+  <div class="d-flex mb-2 mt-4">
+    <label class="me-2 mt-1">Filtro: </label>
+    <input type="text" class="form-control me-2"
+    placeholder="buscar"
+    [(ngModel)]="filtroLista">
+
   </div>
-</form>
+  </div>
+
 <table class="table table-striped ">
   <thead class="table-dark">
 <tr>
+       <th><button  class="btn btn-outline-light btn-sm"
+        (click)="alterarImagem(); alterarBotao()">
+        {{!exibirImagem ? 'exibir' : 'ocultar'}}
+      </button>
+      </th>
       <th>#</th>
-      <th>Imagem</th>
       <th>Tema</th>
       <th>Local</th>
       <th>Data</th>
       <th>Qtd Pessoas</th>
       <th>Lote</th>
       <th>Opções</th>
+
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let evento of eventosFiltrados">
+      <td>
+        <img
+            [collapse]="!exibirImagem"
+            [isAnimated]="true"
+            src="/assets/img/{{evento.imageURL}}" alt=""
+            [style.width.px]="widhtImage"
+            [style.margin.px]="marginImage">
+      </td>
+      <td>{{evento.eventoId}}</td>
+      <td>{{evento.tema}}</td>
+      <td>{{evento.local}}</td>
+      <td>{{evento.dataEvento}}</td>
+      <td>{{evento.qtdPessoas}}</td>
+      <td>{{evento.lote}}</td>
+      <td>
+        <button   type="button" class="btn btn-primary btn-sm  me-2"> {{exibirBotao ? 'editar' : ''}}</button>
+        <button   type="button" class="btn btn-secondary btn-sm"> {{exibirBotao? 'excluir' : ''}}</button>
+      </td>
+
     </tr>
   </tbody>
+  <tfoot>
+    <tr  *ngIf="!eventos.length">
+      <td coslpan="8" class="text-center">
+        <h4>Nenhum evento encontrado</h4>
+      </td>
+    </tr>
+  </tfoot>
 </table>
 
 
